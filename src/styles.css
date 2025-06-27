@@ -1,47 +1,158 @@
-body {
+/* Base setup */
+body, html {
   margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f8f9fa;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  height: 100%;
 }
 
-.container {
-  max-width: 500px;
-  margin: 60px auto;
-  padding: 30px;
+/* Background setup */
+.background {
+  background: url('https://images.unsplash.com/photo-1503264116251-35a269479413?auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background 0.5s ease;
+}
+
+/* Card Styling */
+.card {
+  padding: 40px;
+  border-radius: 20px;
   text-align: center;
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 520px;
+  width: 90%;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+  position: relative;
+  transition: 0.4s ease;
 }
 
-input[type="url"] {
-  width: 80%;
-  padding: 10px;
-  margin-top: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+.card-dark {
+  background: rgba(20, 20, 30, 0.65);
+  color: #f1f1f1;
+  border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
-button {
-  margin-top: 15px;
-  padding: 10px 20px;
-  background-color: #0066cc;
-  color: white;
-  border: none;
-  border-radius: 5px;
+.card-light {
+  background: rgba(255, 255, 255, 0.75);
+  color: #111;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Toggle inside card */
+.theme-toggle {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 22px;
   cursor: pointer;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 8px 10px;
+  border-radius: 50%;
+  backdrop-filter: blur(5px);
+  transition: 0.3s ease;
 }
 
-button:hover {
-  background-color: #004c99;
+.theme-toggle:hover {
+  transform: scale(1.1);
+  background: rgba(255, 255, 255, 0.3);
 }
 
+/* Title & subtitle */
+.title {
+  font-size: 28px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  background: linear-gradient(to right, #00c6ff, #a044ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+  font-size: 15px;
+  margin-bottom: 25px;
+  opacity: 0.9;
+}
+
+/* Form styles */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.input {
+  padding: 14px;
+  border-radius: 10px;
+  border: none;
+  font-size: 15px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(4px);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: background 0.3s ease;
+}
+
+.card-light .input {
+  color: #111;
+  background: rgba(255, 255, 255, 0.85);
+}
+
+.input::placeholder {
+  color: #eee;
+}
+
+.card-light .input::placeholder {
+  color: #555;
+}
+
+/* Button */
+.btn {
+  padding: 14px;
+  background: linear-gradient(90deg, #7b2ff7, #f107a3);
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #f107a3;
+}
+
+/* Result */
 .result {
   margin-top: 20px;
-  font-size: 16px;
+  font-size: 14px;
+  animation: fadeIn 0.4s ease;
 }
 
-a {
-  color: #0066cc;
+.short-url {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 15px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.15);
   text-decoration: none;
+  font-weight: bold;
+  color: #00fff2;
+  transition: background 0.3s ease;
+}
+
+.short-url:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
